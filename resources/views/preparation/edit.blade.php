@@ -26,7 +26,7 @@
                     </div>
                     
                     <div class="col-md-6">
-                        <label for="rennet_qty" class="form-label">Jumlah Rennet (g)</label>
+                        <label for="rennet_qty" class="form-label">Jumlah Rennet (ml)</label>
                         <input type="number" class="form-control" id="rennet_qty" name="rennet_qty" 
                                value="{{ old('rennet_qty', $preparation->rennet_qty) }}" step="0.01" min="0" required>
                     </div>
