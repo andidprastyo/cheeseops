@@ -25,4 +25,9 @@ class Preparation extends Model
         'fat_content' => 'float',
         'notes' => 'string'
     ];
+
+    public function startup()
+    {
+        return $this->hasOne(Startup::class);
+    }
 }
