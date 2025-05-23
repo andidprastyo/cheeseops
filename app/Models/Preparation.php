@@ -12,7 +12,6 @@ class Preparation extends Model
         'rennet_qty',
         'citric_acid_qty',
         'salt_qty',
-        'fat_content',
         'notes'
     ];
 
@@ -22,7 +21,6 @@ class Preparation extends Model
         'rennet_qty' => 'float',
         'citric_acid_qty' => 'float',
         'salt_qty' => 'float',
-        'fat_content' => 'float',
         'notes' => 'string'
     ];
 

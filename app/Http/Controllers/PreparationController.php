@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Preparation;
+use App\Models\History;
 use Illuminate\Http\Request;
 
 class PreparationController extends Controller
@@ -29,7 +30,19 @@ class PreparationController extends Controller
             'notes' => 'nullable|string'
         ]);
 
-        Preparation::create($validated);
+        $preparation = Preparation::create($validated);
+
+        // Create initial history record
+        History::create([
+            'process_type' => 'preparation',
+            'input_data' => [
+                'preparation' => array_merge($validated, ['id' => $preparation->id]),
+                'startup' => null,
+                'shutdown' => null
+            ],
+            'status' => 'in_progress',
+            'completed_at' => null,
+        ]);
 
         return redirect()->route('preparation.index')
                          ->with('success', 'Data persiapan berhasil ditambahkan!');
@@ -52,6 +65,19 @@ class PreparationController extends Controller
         ]);
 
         $preparation->update($validated);
+
+        // Update history record
+        $history = History::where('process_type', 'preparation')
+                         ->whereJsonContains('input_data->preparation->id', $preparation->id)
+                         ->first();
+
+        if ($history) {
+            $history->update([
+                'input_data' => array_merge($history->input_data, [
+                    'preparation' => array_merge($validated, ['id' => $preparation->id])
+                ])
+            ]);
+        }
 
         return redirect()->route('preparation.index')
                          ->with('success', 'Data persiapan berhasil diperbarui!');

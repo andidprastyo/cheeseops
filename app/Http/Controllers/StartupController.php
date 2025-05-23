@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Preparation;
 use App\Models\Startup;
+use App\Models\History;
 use Illuminate\Http\Request;
 
 class StartupController extends Controller
@@ -28,7 +29,20 @@ class StartupController extends Controller
 
         $startup = $preparation->startup()->create($validated);
 
-        return redirect()->route('startup.show', $preparation)
+        // Update history record
+        $history = History::where('process_type', 'preparation')
+                         ->whereJsonContains('input_data->preparation->id', $preparation->id)
+                         ->first();
+
+        if ($history) {
+            $history->update([
+                'input_data' => array_merge($history->input_data, [
+                    'startup' => $validated
+                ])
+            ]);
+        }
+
+        return redirect()->route('process.startup.show', $preparation)
             ->with('success', 'Data startup berhasil ditambahkan!');
     }
 
@@ -47,7 +61,20 @@ class StartupController extends Controller
 
         $preparation->startup()->update($validated);
 
-        return redirect()->route('startup.show', $preparation)
+        // Update history record
+        $history = History::where('process_type', 'preparation')
+                         ->whereJsonContains('input_data->preparation->id', $preparation->id)
+                         ->first();
+
+        if ($history) {
+            $history->update([
+                'input_data' => array_merge($history->input_data, [
+                    'startup' => $validated
+                ])
+            ]);
+        }
+
+        return redirect()->route('process.startup.show', $preparation)
             ->with('success', 'Data startup berhasil diperbarui!');
     }
 } 

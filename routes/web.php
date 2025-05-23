@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PreparationController;
 use App\Http\Controllers\StartupController;
 use App\Http\Controllers\ShutdownController;
+use App\Http\Controllers\HistoryController;
 
 Route::get('/', function () {
     return view('home');
@@ -32,3 +33,5 @@ Route::prefix('process')->name('process.')->group(function () {
         Route::put('/shutdown/{preparation}', 'update')->name('shutdown.update');
     });
 });
+
+Route::get('/history', [HistoryController::class, 'index'])->name('history.index');

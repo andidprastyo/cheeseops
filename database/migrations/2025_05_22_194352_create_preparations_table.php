@@ -18,7 +18,6 @@ return new class extends Migration
             $table->decimal('rennet_qty', 8, 2); // Gram
             $table->decimal('salt_qty', 8, 2); // Gram
             $table->decimal('citric_acid_qty', 8, 2); // Liter
-            $table->decimal('fat_content', 8, 2); // %
             $table->text('notes')->nullable();
             $table->timestamps();
         });
