@@ -30,4 +30,9 @@ class Preparation extends Model
     {
         return $this->hasOne(Startup::class);
     }
+
+    public function shutdown()
+    {
+        return $this->hasOne(Shutdown::class);
+    }
 }

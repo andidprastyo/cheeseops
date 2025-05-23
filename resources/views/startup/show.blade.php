@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Proses Pembuatan Keju')
+@section('title', 'Start-Up Keju')
 
 @section('content')
 <div class="container py-5">
     <!-- Header Section -->
     <div class="row mb-4 justify-content-center text-center">
         <div class="col-md-10">
-            <h1 class="display-6 fw-bold">Proses Pembuatan Keju</h1>
-            <p class="text-muted">Berikut adalah tahapan proses pembuatan keju berdasarkan data persiapan produksi.</p>
+            <h1 class="display-6 fw-bold">Proses Start-Up Keju</h1>
+            <p class="text-muted">Berikut adalah tahapan proses Start-Up keju berdasarkan data persiapan produksi.</p>
         </div>
     </div>
 
@@ -189,6 +189,9 @@
     <div class="text-center mt-5">
         <a href="{{ route('preparation.index') }}" class="btn btn-outline-secondary btn-lg px-4">
             Kembali ke Daftar Persiapan
+        </a>
+        <a href="{{ route('shutdown.show', $preparation) }}" class="btn btn-success btn-lg px-4 me-2">
+            Lanjut ke Proses Shutdown
         </a>
     </div>
 </div>
