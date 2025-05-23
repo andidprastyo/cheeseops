@@ -11,7 +11,7 @@
                     <h5 class="mb-0">Edit Data Startup</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('startup.update', $preparation) }}" method="POST">
+                    <form action="{{ route('process.startup.update', $preparation) }}" method="POST">
                         @csrf
                         @method('PUT')
                         
@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="d-flex justify-content-between">
-                            <a href="{{ route('startup.show', $preparation) }}" class="btn btn-secondary">Kembali</a>
+                            <a href="{{ route('process.startup.show', $preparation) }}" class="btn btn-secondary">Kembali</a>
                             <button type="submit" class="btn btn-success">Update Data</button>
                         </div>
                     </form>

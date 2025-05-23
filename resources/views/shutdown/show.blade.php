@@ -68,13 +68,9 @@
                 <div class="card-header bg-success text-white rounded-top d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">Data Produk Akhir</h5>
                     @if(!$shutdown)
-                        <a href="{{ route('shutdown.create', $preparation) }}" class="btn btn-light btn-sm" aria-label="Tambah data produk akhir">
-                            Tambah Data
-                        </a>
+                        <a href="{{ route('process.shutdown.create', $preparation) }}" class="btn btn-light btn-sm">Tambah Data</a>
                     @else
-                        <a href="{{ route('shutdown.edit', $preparation) }}" class="btn btn-light btn-sm" aria-label="Edit data produk akhir">
-                            Edit Data
-                        </a>
+                        <a href="{{ route('process.shutdown.edit', $preparation) }}" class="btn btn-light btn-sm">Edit Data</a>
                     @endif
                 </div>
                 <div class="card-body">
@@ -105,10 +101,10 @@
 
     <!-- Navigation Buttons -->
     <div class="text-center mt-5">
-        <a href="{{ route('startup.show', $preparation) }}" class="btn btn-outline-secondary btn-lg px-4 me-2" aria-label="Kembali ke halaman startup">
+        <a href="{{ route('process.startup.show', $preparation) }}" class="btn btn-outline-primary btn-lg px-4 me-2">
             Kembali ke Startup
         </a>
-        <a href="{{ route('preparation.index') }}" class="btn btn-outline-secondary btn-lg px-4" aria-label="Kembali ke daftar persiapan produksi">
+        <a href="{{ route('preparation.index') }}" class="btn btn-outline-secondary btn-lg px-4">
             Kembali ke Daftar Persiapan
         </a>
     </div>

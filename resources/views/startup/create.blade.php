@@ -11,7 +11,7 @@
                     <h5 class="mb-0">Tambah Data Startup</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('startup.store', $preparation) }}" method="POST">
+                    <form action="{{ route('process.startup.store', $preparation) }}" method="POST">
                         @csrf
                         
                         <div class="mb-3">
@@ -43,7 +43,7 @@
                         </div>
 
                         <div class="d-flex justify-content-between">
-                            <a href="{{ route('startup.show', $preparation) }}" class="btn btn-secondary">Kembali</a>
+                            <a href="{{ route('process.startup.show', $preparation) }}" class="btn btn-secondary">Kembali</a>
                             <button type="submit" class="btn btn-success">Simpan Data</button>
                         </div>
                     </form>

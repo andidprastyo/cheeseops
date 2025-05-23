@@ -58,7 +58,7 @@
                                         <td>{{ $preparation->notes }}</td>
                                         <td>
                                             <div class="d-flex gap-2">
-                                                <a href="{{ route('startup.show', $preparation) }}" 
+                                                <a href="{{ route('process.startup.show', $preparation) }}" 
                                                    class="btn btn-sm btn-success">
                                                     Mulai Proses
                                                 </a>

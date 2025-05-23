@@ -50,9 +50,9 @@
                 <div class="card-header bg-success text-white rounded-top d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">Data Proses Start-Up</h5>
                     @if(!$startup)
-                        <a href="{{ route('startup.create', $preparation) }}" class="btn btn-light btn-sm">Tambah Data</a>
+                        <a href="{{ route('process.startup.create', $preparation) }}" class="btn btn-light btn-sm">Tambah Data</a>
                     @else
-                        <a href="{{ route('startup.edit', $preparation) }}" class="btn btn-light btn-sm">Edit Data</a>
+                        <a href="{{ route('process.startup.edit', $preparation) }}" class="btn btn-light btn-sm">Edit Data</a>
                     @endif
                 </div>
                 <div class="card-body">
@@ -190,7 +190,7 @@
         <a href="{{ route('preparation.index') }}" class="btn btn-outline-secondary btn-lg px-4">
             Kembali ke Daftar Persiapan
         </a>
-        <a href="{{ route('shutdown.show', $preparation) }}" class="btn btn-success btn-lg px-4 me-2">
+        <a href="{{ route('process.shutdown.show', $preparation) }}" class="btn btn-success btn-lg px-4 me-2">
             Lanjut ke Proses Shutdown
         </a>
     </div>

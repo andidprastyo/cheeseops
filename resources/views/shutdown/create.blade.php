@@ -11,7 +11,7 @@
                     <h5 class="mb-0">Tambah Data Produk Akhir</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('shutdown.store', $preparation) }}" method="POST">
+                    <form action="{{ route('process.shutdown.store', $preparation) }}" method="POST">
                         @csrf
                         
                         <div class="mb-3">
@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="d-flex justify-content-between">
-                            <a href="{{ route('shutdown.show', $preparation) }}" class="btn btn-secondary">Kembali</a>
+                            <a href="{{ route('process.shutdown.show', $preparation) }}" class="btn btn-secondary">Kembali</a>
                             <button type="submit" class="btn btn-success">Simpan Data</button>
                         </div>
                     </form>
