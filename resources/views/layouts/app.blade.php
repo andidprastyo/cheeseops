@@ -49,7 +49,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">Home</a>
-                    <a class="nav-link {{ request()->is('preparation*') ? 'active' : '' }}" href="/preparation">Preparation</a>
+                    <a class="nav-link {{ request()->is('preparation*') ? 'active' : '' }}" href="/preparation">Persiapan</a>
                     <a class="nav-link {{ request()->is('history*') ? 'active' : '' }}" href="/history">History</a>
                 </div>
             </div>

@@ -10,9 +10,9 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Production Date</th>
-                    <th>Process Data</th>
+                    <th>Record Dibuat</th>
+                    <th>Tanggal Produksi</th>
+                    <th>Proses Data</th>
                     <th>Progress</th>
                     <th>Status</th>
                 </tr>
@@ -38,27 +38,27 @@
                                     @if(isset($history->input_data['preparation']))
                                     <h6 class="card-title">Preparation Data</h6>
                                     <ul class="list-unstyled">
-                                        <li>Milk: {{ number_format($history->input_data['preparation']['milk_qty'], 0, ',', '.') }} L</li>
+                                        <li>Susu: {{ number_format($history->input_data['preparation']['milk_qty'], 0, ',', '.') }} L</li>
                                         <li>Rennet: {{ number_format($history->input_data['preparation']['rennet_qty'], 0, ',', '.') }} ml</li>
-                                        <li>Citric Acid: {{ number_format($history->input_data['preparation']['citric_acid_qty'], 0, ',', '.') }} ml</li>
-                                        <li>Salt: {{ number_format($history->input_data['preparation']['salt_qty'], 0, ',', '.') }} g</li>
+                                        <li>Asam Sitrat: {{ number_format($history->input_data['preparation']['citric_acid_qty'], 0, ',', '.') }} ml</li>
+                                        <li>Garam: {{ number_format($history->input_data['preparation']['salt_qty'], 0, ',', '.') }} g</li>
                                     </ul>
                                     @endif
 
                                     @if(isset($history->input_data['startup']))
                                     <h6 class="card-title mt-3">Startup Data</h6>
                                     <ul class="list-unstyled">
-                                        <li>Temperature: {{ number_format($history->input_data['startup']['temperature'], 1) }}°C</li>
-                                        <li>Analysis: {{ $history->input_data['startup']['analysis'] }}</li>
+                                        <li>Suhu: {{ number_format($history->input_data['startup']['temperature'], 1) }}°C</li>
+                                        <li>Analisis Akhir: {{ $history->input_data['startup']['analysis'] }}</li>
                                     </ul>
                                     @endif
 
                                     @if(isset($history->input_data['shutdown']))
                                     <h6 class="card-title mt-3">Shutdown Data</h6>
                                     <ul class="list-unstyled">
-                                        <li>Cheese Weight: {{ number_format($history->input_data['shutdown']['cheese_weight'], 0, ',', '.') }} g</li>
-                                        <li>Whey Volume: {{ number_format($history->input_data['shutdown']['whey_volume'], 0, ',', '.') }} L</li>
-                                        <li>Final Analysis: {{ $history->input_data['shutdown']['final_analysis'] }}</li>
+                                        <li>Berat Keju: {{ number_format($history->input_data['shutdown']['cheese_weight'], 0, ',', '.') }} g</li>
+                                        <li>Volume Whey: {{ number_format($history->input_data['shutdown']['whey_volume'], 0, ',', '.') }} L</li>
+                                        <li>Analisis Akhir: {{ $history->input_data['shutdown']['final_analysis'] }}</li>
                                     </ul>
                                     @endif
                                 </div>
