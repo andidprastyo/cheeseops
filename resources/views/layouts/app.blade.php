@@ -40,7 +40,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <i class="fas fa-cheese" style="color: #e67e22;"></i>
+                <img src="{{ asset('cheese_icon.png') }}" alt="CheeseOps Logo" height="30">
                 CheeseOps
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
