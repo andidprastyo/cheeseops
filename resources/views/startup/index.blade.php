@@ -3,190 +3,284 @@
 @section('title', 'Proses Pembuatan Keju')
 
 @section('content')
-<div class="container py-5">
+<div class="container mx-auto px-4 py-8">
     <!-- Header Section -->
-    <div class="row mb-4 justify-content-center text-center">
-        <div class="col-md-10">
-            <h1 class="display-6 fw-bold">Proses Pembuatan Keju</h1>
-            <p class="text-muted">Berikut adalah tahapan proses pembuatan keju berdasarkan data persiapan produksi.</p>
-        </div>
+    <div class="text-center mb-12" data-aos="fade-down">
+        <h1 class="text-4xl font-bold text-primary mb-4">Proses Pembuatan Keju</h1>
+        <p class="text-lg text-secondary max-w-3xl mx-auto">
+            Berikut adalah tahapan proses pembuatan keju berdasarkan data persiapan produksi.
+        </p>
     </div>
 
     <!-- Production Data Card -->
-    <div class="row mb-5">
-        <div class="col-md-12">
-            <div class="card shadow-sm border-0 rounded-3">
-                <div class="card-header bg-primary text-white rounded-top">
-                    <h5 class="mb-0">Data Persiapan Produksi</h5>
+    <div class="bg-white rounded-xl shadow-lg border border-primary/10 mb-10 overflow-hidden" data-aos="fade-up">
+        <div class="bg-primary p-6 text-white">
+            <h2 class="text-xl font-semibold">Data Persiapan Produksi</h2>
+        </div>
+        <div class="p-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="bg-secondary/20 p-4 rounded-lg">
+                    <p class="text-sm font-medium text-primary/70">Tanggal Produksi</p>
+                    <p class="text-primary font-semibold">{{ $preparation->production_date->translatedFormat('d F Y') }}
+                    </p>
                 </div>
-                <div class="card-body">
-                    <div class="row text-center">
-                        <div class="col-md-3">
-                            <p class="mb-1"><strong>Tanggal Produksi:</strong></p>
-                            <p>{{ $preparation->production_date->translatedFormat('d F Y') }}</p>
-                        </div>
-                        <div class="col-md-3">
-                            <p class="mb-1"><strong>Susu:</strong></p>
-                            <p>{{ number_format($preparation->milk_qty, 0, ',', '.') }} L</p>
-                        </div>
-                        <div class="col-md-3">
-                            <p class="mb-1"><strong>Rennet:</strong></p>
-                            <p>{{ number_format($preparation->rennet_qty, 0, ',', '.') }} ml</p>
-                        </div>
-                        <div class="col-md-3">
-                            <p class="mb-1"><strong>Asam Sitrat:</strong></p>
-                            <p>{{ number_format($preparation->citric_acid_qty, 0, ',', '.') }} ml</p>
-                        </div>
-                    </div>
+                <div class="bg-secondary/20 p-4 rounded-lg">
+                    <p class="text-sm font-medium text-primary/70">Susu</p>
+                    <p class="text-primary font-semibold">{{ number_format($preparation->milk_qty, 0, ',', '.') }} L</p>
+                </div>
+                <div class="bg-secondary/20 p-4 rounded-lg">
+                    <p class="text-sm font-medium text-primary/70">Rennet</p>
+                    <p class="text-primary font-semibold">{{ number_format($preparation->rennet_qty, 0, ',', '.') }} ml
+                    </p>
+                </div>
+                <div class="bg-secondary/20 p-4 rounded-lg">
+                    <p class="text-sm font-medium text-primary/70">Asam Sitrat</p>
+                    <p class="text-primary font-semibold">{{ number_format($preparation->citric_acid_qty, 0, ',', '.')
+                        }} ml</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Process Steps -->
-    <div class="row g-4">
-
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
         <!-- Step 1 -->
-        <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-3">
-                <div class="card-header bg-primary text-white d-flex align-items-center">
-                    <span class="badge bg-light text-dark me-2">1</span>
-                    <h5 class="mb-0">Persiapan Awal</h5>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item px-0 py-2">Masukkan susu segar sebanyak {{ number_format($preparation->milk_qty, 0, ',', '.') }} liter ke dalam tangki penampung (Tangki A)</li>
-                        <li class="list-group-item px-0 py-2">Sambungkan kabel alat ke stop kontak untuk menyalakan panel kontrol</li>
-                    </ul>
-                </div>
+        <div class="bg-white rounded-xl shadow-lg border border-primary/10 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            data-aos="fade-up">
+            <div class="bg-primary p-4 text-white flex items-center">
+                <span
+                    class="bg-accent text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center mr-3">1</span>
+                <h3 class="text-lg font-semibold">Persiapan Awal</h3>
+            </div>
+            <div class="p-5">
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Masukkan susu segar sebanyak {{ number_format($preparation->milk_qty,
+                            0, ',', '.') }} liter ke dalam tangki penampung (Tangki A)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Sambungkan kabel alat ke stop kontak untuk menyalakan panel
+                            kontrol</span>
+                    </li>
+                </ul>
             </div>
         </div>
 
         <!-- Step 2 -->
-        <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-3">
-                <div class="card-header bg-success text-white d-flex align-items-center">
-                    <span class="badge bg-light text-dark me-2">2</span>
-                    <h5 class="mb-0">Pasteurisasi</h5>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item px-0 py-2">Menyalakan panel dengan mengubah posisi tombol dari OFF ke ON</li>
-                        <li class="list-group-item px-0 py-2">Periksa apakah terjadi kejutan listrik pada sistem</li>
-                        <li class="list-group-item px-0 py-2">Jika tidak ada kejutan, matikan dan ulangi proses dari awal</li>
-                        <li class="list-group-item px-0 py-2">Tekan tombol warna hijau pada panel untuk membuka Valve</li>
-                        <li class="list-group-item px-0 py-2">Pastikan lampu warna merah menyala sebagai indikator bahwa sistem berjalan baik</li>
-                        <li class="list-group-item px-0 py-2">Tunggu hingga susu memenuhi Chamber Kejut</li>
-                        <li class="list-group-item px-0 py-2">Buka keran bawah sedikit (bukaan 1/4) untuk mengalirkan susu</li>
-                        <li class="list-group-item px-0 py-2">Tunggu hingga seluruh susu selesai dipasteurisasi</li>
-                    </ul>
-                </div>
+        <div class="bg-white rounded-xl shadow-lg border border-primary/10 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-green-600 p-4 text-white flex items-center">
+                <span
+                    class="bg-accent text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center mr-3">2</span>
+                <h3 class="text-lg font-semibold">Pasteurisasi</h3>
+            </div>
+            <div class="p-5">
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Menyalakan panel dengan mengubah posisi tombol dari OFF ke ON</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Periksa apakah terjadi kejutan listrik pada sistem</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Jika tidak ada kejutan, matikan dan ulangi proses dari awal</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Tekan tombol warna hijau pada panel untuk membuka Valve</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Pastikan lampu warna merah menyala sebagai indikator bahwa sistem
+                            berjalan baik</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Tunggu hingga susu memenuhi Chamber Kejut</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Buka keran bawah sedikit (bukaan 1/4) untuk mengalirkan susu</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Tunggu hingga seluruh susu selesai dipasteurisasi</span>
+                    </li>
+                </ul>
             </div>
         </div>
 
         <!-- Step 3 -->
-        <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-3">
-                <div class="card-header bg-info text-white d-flex align-items-center">
-                    <span class="badge bg-light text-dark me-2">3</span>
-                    <h5 class="mb-0">Pengadukan & Pemanasan</h5>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item px-0 py-2">Hidupkan pengaduk dengan menekan tombol ON, lalu atur kecepatan putaran</li>
-                        <li class="list-group-item px-0 py-2">Atur suhu pada panel ke rentang 39–42°C</li>
-                        <li class="list-group-item px-0 py-2">Matikan kompor ketika suhu mencapai 39°C</li>
-                        <li class="list-group-item px-0 py-2">Matikan pengaduk dengan menekan tombol OFF</li>
-                    </ul>
-                </div>
+        <div class="bg-white rounded-xl shadow-lg border border-primary/10 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-blue-500 p-4 text-white flex items-center">
+                <span
+                    class="bg-accent text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center mr-3">3</span>
+                <h3 class="text-lg font-semibold">Pengadukan & Pemanasan</h3>
+            </div>
+            <div class="p-5">
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Hidupkan pengaduk dengan menekan tombol ON, lalu atur kecepatan
+                            putaran</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Atur suhu pada panel ke rentang 39–42°C</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Matikan kompor ketika suhu mencapai 39°C</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Matikan pengaduk dengan menekan tombol OFF</span>
+                    </li>
+                </ul>
             </div>
         </div>
 
         <!-- Step 4 -->
-        <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-3">
-                <div class="card-header bg-warning text-dark d-flex align-items-center">
-                    <span class="badge bg-light text-dark me-2">4</span>
-                    <h5 class="mb-0">Penambahan Bahan</h5>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item px-0 py-2">Masukkan asam sitrat ({{ number_format($preparation->citric_acid_qty, 0, ',', '.') }} ml) dan rennet ({{ number_format($preparation->rennet_qty, 0, ',', '.') }} ml)</li>
-                        <li class="list-group-item px-0 py-2">Hidupkan pengaduk hingga bahan tercampur rata</li>
-                        <li class="list-group-item px-0 py-2">Matikan pengaduk dan tunggu hingga terbentuk curd (dadih)</li>
-                    </ul>
-                </div>
+        <div class="bg-white rounded-xl shadow-lg border border-primary/10 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            data-aos="fade-up">
+            <div class="bg-yellow-500 p-4 text-white flex items-center">
+                <span
+                    class="bg-accent text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center mr-3">4</span>
+                <h3 class="text-lg font-semibold">Penambahan Bahan</h3>
+            </div>
+            <div class="p-5">
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Masukkan asam sitrat ({{ number_format($preparation->citric_acid_qty,
+                            0, ',', '.') }} ml) dan rennet ({{ number_format($preparation->rennet_qty, 0, ',', '.') }}
+                            ml)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Hidupkan pengaduk hingga bahan tercampur rata</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Matikan pengaduk dan tunggu hingga terbentuk curd (dadih)</span>
+                    </li>
+                </ul>
             </div>
         </div>
 
         <!-- Step 5 -->
-        <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-3">
-                <div class="card-header bg-danger text-white d-flex align-items-center">
-                    <span class="badge bg-light text-dark me-2">5</span>
-                    <h5 class="mb-0">Pemotongan Curd</h5>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item px-0 py-2">Hidupkan pengaduk untuk memotong curd</li>
-                        <li class="list-group-item px-0 py-2">Setelah selesai, buka Valve 2 untuk mengalirkan campuran ke Tangki C</li>
-                    </ul>
-                </div>
+        <div class="bg-white rounded-xl shadow-lg border border-primary/10 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-red-600 p-4 text-white flex items-center">
+                <span
+                    class="bg-accent text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center mr-3">5</span>
+                <h3 class="text-lg font-semibold">Pemotongan Curd</h3>
+            </div>
+            <div class="p-5">
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Hidupkan pengaduk untuk memotong curd</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Setelah selesai, buka Valve 2 untuk mengalirkan campuran ke Tangki
+                            C</span>
+                    </li>
+                </ul>
             </div>
         </div>
 
         <!-- Step 6 -->
-        <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-3">
-                <div class="card-header bg-secondary text-white d-flex align-items-center">
-                    <span class="badge bg-light text-dark me-2">6</span>
-                    <h5 class="mb-0">Pemisahan Curd dan Whey</h5>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item px-0 py-2">Di Tangki C, pisahkan curd dan whey</li>
-                        <li class="list-group-item px-0 py-2">Lakukan pencetakan curd dan taburi garam ({{ number_format($preparation->salt_qty, 0, ',', '.') }} g)</li>
-                    </ul>
-                </div>
+        <div class="bg-white rounded-xl shadow-lg border border-primary/10 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-gray-600 p-4 text-white flex items-center">
+                <span
+                    class="bg-accent text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center mr-3">6</span>
+                <h3 class="text-lg font-semibold">Pemisahan Curd dan Whey</h3>
+            </div>
+            <div class="p-5">
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Di Tangki C, pisahkan curd dan whey</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 bg-accent/20 text-accent rounded-full p-1 mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                        <span class="text-primary">Lakukan pencetakan curd dan taburi garam ({{
+                            number_format($preparation->salt_qty, 0, ',', '.') }} g)</span>
+                    </li>
+                </ul>
             </div>
         </div>
-
     </div>
 
     <!-- Back Button -->
-    <div class="text-center mt-5">
-        <a href="{{ route('preparation.index') }}" class="btn btn-outline-secondary btn-lg px-4">
-            Kembali ke Daftar Persiapan
+    <div class="text-center mt-8" data-aos="fade-up">
+        <a href="{{ route('preparation.index') }}"
+            class="text-primary bg-white border border-primary hover:bg-secondary hover:text-primary focus:ring-4 focus:ring-accent font-medium rounded-lg px-6 py-3 inline-flex items-center transition-colors duration-300">
+            <i class="fas fa-arrow-left mr-2"></i> Kembali ke Daftar Persiapan
         </a>
     </div>
-
 </div>
-
-<style>
-.card {
-    transition: transform 0.3s ease;
-    border-radius: 0.5rem;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card-header {
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-}
-
-.list-group-item {
-    font-size: 0.875rem;
-    padding: 0.5rem 1rem;
-    border: none;
-}
-
-.badge {
-    font-size: 0.8rem;
-    padding: 0.35rem 0.6rem;
-}
-</style>
 @endsection
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-quad',
+            once: true
+        });
+    });
+</script>
+@endpush
